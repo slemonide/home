@@ -1,0 +1,15 @@
+#!/bin/bash
+
+fg_colours=("rgb:aa/aa/99" "PapayaWhip" "#DDDDDD" "#bbbb99" "rgb:d3/62/65"
+            "#acacab" "#e2e2e5" "#9da560" "#f0f0f0" "#DDEEDD")
+bg_colours=("rgb:00/00/00" "rgb:00/00/80" "#121212" "#1a1a1a" "#242424"
+            "#101309" "#313131" "#1C1C1C")
+
+fg_colour=${fg_colours[$(( RANDOM % ${#fg_colours[*]}))]}
+bg_colour=${bg_colours[$(( RANDOM % ${#bg_colours[*]}))]}
+
+if [ $((RANDOM % 2)) == 1 ]; then
+    xterm -fg $fg_colour -bg $bg_colour
+else
+    xterm -fg $bg_colour -bg $fg_colour
+fi
